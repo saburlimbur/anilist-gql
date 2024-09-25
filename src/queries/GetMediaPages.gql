@@ -1,0 +1,11 @@
+query GetMediaPages($search: String) {
+  Page {
+    media(search: $search) {
+      id
+      title {
+        english
+      }
+      description
+    }
+  }
+}

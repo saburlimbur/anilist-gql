@@ -1,50 +1,27 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
-import { gql, useQuery } from '@apollo/client';
-
-const QUERY = gql`
-  query GetMediaPages($search: String) {
-    Page {
-      media(search: $search) {
-        id
-        title {
-          english
-        }
-        description
-      }
-    }
-  }
-`;
+import { useQuery } from '@apollo/client';
+import GetMediaPages from './queries/GetMediaPages.gql';
+import styles from './App.module.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const { data } = useQuery(QUERY);
-
-  console.log({
-    data,
-  });
-
+  const { data, loading } = useQuery(GetMediaPages);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main>
+      <h1>Anime List</h1>
+      <div className={styles.listWrapper}>
+        {loading ? (
+          <h2>Loading List...</h2>
+        ) : (
+          data.Page.media.map(({ title }) => {
+            return (
+              <>
+                <div>{title.english}</div>
+              </>
+            );
+          })
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </main>
   );
 }
 
