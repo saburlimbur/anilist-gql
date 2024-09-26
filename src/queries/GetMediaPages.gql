@@ -7,7 +7,7 @@ query GetMediaPages($search: String, $page: Int) {
       hasNextPage
       perPage
     }
-    media(search: $search) {
+    media(search: $search, isAdult: false) {
       id
       title {
         english

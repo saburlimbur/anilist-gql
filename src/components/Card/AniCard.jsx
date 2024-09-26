@@ -1,9 +1,9 @@
 import styles from './Anicard.module.css';
 
 const AniCard = (props) => {
-  const { title, bannerImg } = props;
+  const { title, bannerImg, onClick } = props;
   return (
-    <section className={styles.container}>
+    <section className={styles.container} onClick={onClick}>
       <div className={styles.imgWrapper}>
         <img src={bannerImg} />
       </div>
