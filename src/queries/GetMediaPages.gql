@@ -1,5 +1,12 @@
-query GetMediaPages($search: String) {
-  Page {
+query GetMediaPages($search: String, $page: Int) {
+  Page(page: $page) {
+    pageInfo {
+      total
+      lastPage
+      currentPage
+      hasNextPage
+      perPage
+    }
     media(search: $search) {
       id
       title {

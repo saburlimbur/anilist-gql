@@ -6,3 +6,15 @@
   text-align: center;
 }
 
+.search {
+  width: 50%;
+  height: 50px;
+  display: block;
+  padding: 0 10px;
+  outline: none;
+  margin: 0 auto 25px;
+  border-radius: 6px;
+  border: 1px solid lightgray;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
