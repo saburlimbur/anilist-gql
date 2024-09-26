@@ -4,8 +4,10 @@ query GetMediaPages($search: String) {
       id
       title {
         english
+        native
       }
       description
+      bannerImage
     }
   }
 }

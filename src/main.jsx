@@ -7,7 +7,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 // initialize apollo client
 
 const client = new ApolloClient({
-  uri: 'https://graphql.anilist.co',
+  uri: 'https://graphql.anilist.co/',
   cache: new InMemoryCache(),
 });
 

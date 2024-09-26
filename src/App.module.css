@@ -1,3 +1,8 @@
-.listWrapper {
-  text-align: left;
+.title {
+  padding-bottom: 30px;
 }
+
+.listWrapper {
+  text-align: center;
+}
+
